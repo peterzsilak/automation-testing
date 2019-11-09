@@ -18,6 +18,8 @@
     <properties>
         <spring-cloud.version>Hoxton.RC1</spring-cloud.version>
         <cucumber.version>4.2.6</cucumber.version>
+        <webdriver-manager.version>3.7.1</webdriver-manager.version>
+        <selenium.version>3.141.59</selenium.version>
     </properties>
 
     <dependencies>
@@ -56,6 +58,25 @@
             <artifactId>cucumber-spring</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- WebDriver Manager deps. -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>3.7.1</version>
+        </dependency>
+
+        <!-- Selenium WebDriver deps. -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
 
     </dependencies>
