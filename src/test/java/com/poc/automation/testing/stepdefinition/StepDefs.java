@@ -1,7 +1,6 @@
 package com.poc.automation.testing.stepdefinition;
 
 import com.poc.automation.testing.BaseTest;
-import com.poc.automation.testing.driver.DriverManagerFactory;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -9,21 +8,19 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import static com.poc.automation.testing.driver.DriverTypes.CHROME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Stepdefs extends BaseTest {
+public class StepDefs extends BaseTest {
 
     @Before
     public void setup(){
         logger.info("Webdriver started to initialize...");
-        DriverManagerFactory.getDriver(CHROME);
-        webDriver = DriverManagerFactory.getDriver(CHROME);
+        webDriver = driverManager.getDriver();
     }
 
     @After
     public void teardown(){
-        DriverManagerFactory.closeDriver(webDriver);
+        driverManager.closeDriver(webDriver);
         logger.info("Webdriver stopped.");
     }
 
