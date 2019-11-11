@@ -1,4 +1,4 @@
-package com.poc.automation.testing.driver;
+package com.poc.automation.testing.driver.manager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -9,13 +9,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SingletonFirefoxDriver {
+public class SingletonFirefoxDriverManager implements SingletonDriver {
 
     @Value("${headless}")
     Boolean headlessModeIsOn;
 
     private WebDriver webDriver;
 
+    @Override
     public WebDriver getWebDriverInstance() {
 
         if (webDriver == null) {

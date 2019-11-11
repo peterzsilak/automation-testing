@@ -1,4 +1,4 @@
-drivertype: FIREFOX
+drivertype: CHROME
 headless: false
 spring:
   application:

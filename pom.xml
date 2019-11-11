@@ -109,15 +109,15 @@
                     <target>11</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <!-- Use 2.22.1 or higher -->
-                <version>3.0.0-M3</version>
-                <configuration>
-                    <parallel>both</parallel>
-                    <threadCount>4</threadCount>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                &lt;!&ndash; Use 2.22.1 or higher &ndash;&gt;-->
+<!--                <version>3.0.0-M3</version>-->
+<!--                <configuration>-->
+<!--                    <parallel>both</parallel>-->
+<!--                    <threadCount>4</threadCount>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
