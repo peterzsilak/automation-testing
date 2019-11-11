@@ -1,5 +1,5 @@
 drivertype: CHROME
-headless: false
+headless: true
 spring:
   application:
     name: automationtest

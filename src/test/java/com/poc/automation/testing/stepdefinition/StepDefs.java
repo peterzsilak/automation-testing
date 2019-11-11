@@ -1,10 +1,10 @@
 package com.poc.automation.testing.stepdefinition;
 
 import com.poc.automation.testing.BaseTest;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,14 +14,14 @@ public class StepDefs extends BaseTest {
 
     @Before
     public void setup(){
-        logger.info("Webdriver started to initialize...");
+        logger.info("Init started....");
         webDriver = driverManager.getDriver();
     }
 
     @After
     public void teardown(){
-        driverManager.closeDriver(webDriver);
-        logger.info("Webdriver stopped.");
+        logger.info("webdriver has been killed.");
+        webDriver.quit();
     }
 
     @Given("the Google search page")

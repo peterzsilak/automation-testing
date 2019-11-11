@@ -8,28 +8,22 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SingletonChromeDriverManager implements SingletonDriver {
+public class SingletonChromeDriver {
 
     @Value("${headless}")
     Boolean headlessModeIsOn;
     
     private WebDriver webDriver;
 
-    @Override
     public WebDriver getWebDriverInstance() {
-
         if (webDriver == null) {
-
             WebDriverManager.chromedriver().setup();
-
             if (headlessModeIsOn) {
                 ChromeOptions options = setHeadlessMode();
-                return new ChromeDriver(options);
+                this.webDriver = new ChromeDriver(options);
             }
-
-            return new ChromeDriver();
+            this.webDriver = new ChromeDriver();
         }
-
         return webDriver;
     }
 

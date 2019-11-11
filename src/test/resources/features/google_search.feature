@@ -12,6 +12,7 @@ Feature: Google Search
     When user is searching for a <word>
 
     Examples:
-      | word  |
-      | "cat" |
-      | "dog" |
+      | word      |
+      | "cat"     |
+#      | "dog"     |
+#      | "páfrány" |

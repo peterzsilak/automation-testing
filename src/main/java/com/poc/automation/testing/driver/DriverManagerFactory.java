@@ -1,13 +1,14 @@
 package com.poc.automation.testing.driver;
 
-import com.poc.automation.testing.driver.manager.SingletonChromeDriverManager;
-import com.poc.automation.testing.driver.manager.SingletonFirefoxDriverManager;
+import com.poc.automation.testing.driver.manager.SingletonChromeDriver;
+import com.poc.automation.testing.driver.manager.SingletonFirefoxDriver;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import static com.poc.automation.testing.driver.DriverTypes.*;
+import static com.poc.automation.testing.driver.DriverTypes.CHROME;
+import static com.poc.automation.testing.driver.DriverTypes.FIREFOX;
 
 @Component
 public class DriverManagerFactory {
@@ -16,22 +17,21 @@ public class DriverManagerFactory {
     DriverTypes driverType;
 
     @Autowired
-    SingletonChromeDriverManager singletonChromeDriverManager;
+    private SingletonChromeDriver singletonChrome;
 
     @Autowired
-    SingletonFirefoxDriverManager singletonFirefoxDriverManager;
+    private SingletonFirefoxDriver singletonFirefox;
 
     public WebDriver getDriver() {
-        WebDriver webDriver;
-        if (driverType == FIREFOX) {
-            webDriver = singletonFirefoxDriverManager.getWebDriverInstance();
+
+        if ( driverType == FIREFOX ) {
+            return singletonFirefox.getWebDriverInstance();
         } else
-        if (driverType == CHROME) {
-            webDriver = singletonChromeDriverManager.getWebDriverInstance();
+        if ( driverType == CHROME ) {
+            return singletonChrome.getWebDriverInstance();
         } else {
-            webDriver = singletonChromeDriverManager.getWebDriverInstance();
+            return singletonChrome.getWebDriverInstance();
         }
-        return webDriver;
     }
 
     public static void closeDriver(WebDriver webDriver) {
